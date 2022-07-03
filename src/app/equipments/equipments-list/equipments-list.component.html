@@ -1,0 +1,11 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let equipment of equipmentList; let i = index" id="equ{{i}}" class="mat-elevation-z0"
+        [style.borderColor]="equipment.status|color">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{equipment.name}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <equipment-items [equipment-id]="equipment.id" (eventEmitter)="setStatus($event, i)"></equipment-items>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,28 @@
+<div class="equipment-items">
+    <mat-card *ngFor="let item of equipmentItems">
+        <mat-card-title-group>
+            <mat-card-title style="margin-bottom: 0.9rem;">{{item.name}}</mat-card-title>
+            <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+            <img mat-card-sm-image *ngIf="item.problems.warnings.length === 0 && item.problems.errors.length === 0"
+                src="/assets/images/ok.svg">
+            <img mat-card-sm-image *ngIf="item.problems.warnings.length > 0 && item.problems.errors.length === 0" src="/assets/images/warning.svg">
+            <img mat-card-sm-image *ngIf="item.problems.errors.length > 0" src="/assets/images/error.svg">
+        </mat-card-title-group>
+        <mat-card-content>
+            <div *ngIf="item.problems.warnings.length !== 0">
+                <p>Warnings</p>
+                <ul>
+                    <li *ngFor="let warning of item.problems.warnings">{{warning}}</li>
+                </ul>
+            </div>
+            <div *ngIf="item.problems.errors.length !== 0">
+                <p>Errors</p>
+                <ul>
+                    <li *ngFor="let error of item.problems.errors">
+                        {{error}}
+                    </li>
+                </ul>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

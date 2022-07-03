@@ -1,0 +1,9 @@
+.equipment-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+mat-card:not(:last-child) {
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,9 @@
+<div class="vehical-head">
+    <p style="opacity: 0.5; font-size: 12px">Lista urządzeń</p>
+    <span class="vehicle-status" [ngSwitch]="status">
+        <mat-icon aria-hidden="false" aria-label="error" class="error" *ngSwitchCase="2">error</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="warning" class="warning" *ngSwitchCase="1">warning</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="ok" class="success" *ngSwitchDefault="">check_circle</mat-icon>
+    </span>
+</div>
+<equipments-list [vehicle-id]="id" (eventEmitter)="setStatus($event)"></equipments-list>
